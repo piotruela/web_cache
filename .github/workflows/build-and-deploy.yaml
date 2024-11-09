@@ -1,5 +1,10 @@
 name: Deploy to GitHub Pages
 
+permissions:
+  contents: write
+  pull-requests: write 
+  deployments: write
+
 on:
   workflow_dispatch:
   push:
