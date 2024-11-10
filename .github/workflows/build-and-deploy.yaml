@@ -27,7 +27,15 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web --release --base-href="/web_cache/" --pwa-strategy=none
+        run: flutter build web --release --base-href="/web_cache/"
+
+      - name: Move files and update index.html
+        run: |
+          VERSION="web_$(date +%Y%m%d%H%M%S)"
+          mv build/web "build/$VERSION"
+          mv "build/$VERSION/index.html" "build/index.html"
+          sed -i 's|<head>|<head><base href="./'"$VERSION"'/">|' build/index.html
+
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
