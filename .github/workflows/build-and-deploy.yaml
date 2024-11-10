@@ -29,8 +29,15 @@ jobs:
       - name: Build
         run: flutter build web --release  --base-href="/web_cache/" --web-renderer=canvaskit
 
-      - name: Write Git Hash to Version File
-        run: echo $(git rev-parse HEAD) > build/web/version.txt
+      - name: Get the last commit hash
+        id: get_commit_hash
+        run: echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Update flutter_bootstrap.js with commit hash in index.html
+        working-directory: build/web
+        run: |
+          COMMIT_HASH=${{ env.COMMIT_HASH }}
+          sed -i "s|flutter_bootstrap.js|flutter_bootstrap.js?cache_bust=${COMMIT_HASH}|" index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
