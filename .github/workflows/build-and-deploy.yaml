@@ -17,9 +17,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/configure-pages@v5
       - uses: actions/checkout@v4
+
       - uses: subosito/flutter-action@v2
-      - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          webRenderer: canvaskit
+          flutter-version: '3.24.x' 
+
+      - name: Download Dependencies
+        run: flutter pub get
+
+      - name: Build
+        run: flutter build web --release --base-href="/web_cache/"
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
