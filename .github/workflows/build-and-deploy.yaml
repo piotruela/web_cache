@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web --release --base-href="/web_cache/"
+        run: flutter build web --release
 
       - name: Move files and update index.html
         run: |
