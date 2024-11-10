@@ -17181,7 +17181,7 @@ return A.X(A.AW(),$async$IY)
 case 2:h=b
 g=B.d
 s=3
-return A.X(A.a6o("version.txt"),$async$IY)
+return A.X(A.a6o("version.txt?"+Date.now()),$async$IY)
 case 3:g.mw(b)
 A.bU(J.b_(h.a,"version"))
 if($.aN==null){q=A.a([],t.kf)
@@ -51530,7 +51530,7 @@ return A.X(A.AW(),$async$$0)
 case 2:q=b
 o=B.d
 s=3
-return A.X(A.a6o("version.txt"),$async$$0)
+return A.X(A.a6o("version.txt?"+Date.now()),$async$$0)
 case 3:p=o.mw(b)
 A.oc(p,"value")
 J.jC(q.a,"version",p)
