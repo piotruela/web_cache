@@ -31,7 +31,7 @@ jobs:
 
       - name: Move files and update index.html
         run: |
-          VERSION="web_$(date +%Y%m%d%H%M%S)"
+          VERSION="web_1234"
           mkdir build/deploy
           mv build/web "build/deploy/$VERSION"
           mv "build/deploy/$VERSION/index.html" "build/deploy/index.html"
