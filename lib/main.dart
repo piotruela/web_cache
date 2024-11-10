@@ -21,13 +21,11 @@ void main() {
 
 Future<void> mainCommon() async {
   final prefs = await SharedPreferences.getInstance();
-  final response = await HttpRequest.getString('version.txt');
+  final response = await HttpRequest.getString(
+    'version.txt?${DateTime.now().millisecondsSinceEpoch}',
+  );
   final currentVersion = response.trim();
   final savedVersion = prefs.getString('version');
-
-  if (currentVersion != savedVersion) {
-    prefs.setString('version', currentVersion);
-  }
 
   runApp(
     MaterialApp(
@@ -54,7 +52,13 @@ class MainApp extends HookWidget {
           content: const Text('New version available!'),
           action: SnackBarAction(
               label: 'Reload',
-              onPressed: () {
+              onPressed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                final response = await HttpRequest.getString(
+                  'version.txt?${DateTime.now().millisecondsSinceEpoch}',
+                );
+                final currentVersion = response.trim();
+                prefs.setString('version', currentVersion);
                 window.location.reload();
               }),
         ),
@@ -63,7 +67,7 @@ class MainApp extends HookWidget {
 
     return const Scaffold(
       body: Center(
-        child: Text('Hello World! 12'),
+        child: Text('Hello World! 14'),
       ),
     );
   }
