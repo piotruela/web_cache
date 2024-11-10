@@ -51481,7 +51481,7 @@ r.pj(A.aen(null,p,!0,null,new A.P4(),s,null,q,B.ty,!0,t.z))}},
 $S:0}
 A.P4.prototype={
 $1(a){var s=null
-return new A.lz(B.I1,B.I3,A.a([new A.Bn(new A.P3(),s,s,s,s,s,s,!1,s,!0,B.I2,s)],t.eE),s)},
+return new A.lz(B.I2,B.I4,A.a([new A.Bn(new A.P3(),s,s,s,s,s,s,!1,s,!0,B.I3,s)],t.eE),s)},
 $S:345}
 A.P3.prototype={
 $0(){var s=0,r=A.U(t.H),q,p,o
@@ -53443,8 +53443,8 @@ B.vl=new A.a_y()
 B.vm=new A.GY()
 B.vn=new A.HT()
 B.vr=new A.ov(null,null,null,null,null,null,null)
-B.I4=new A.l_("Hello World! 21",null,null,null,null)
-B.vs=new A.wG(B.aG,null,null,B.I4,null)
+B.I1=new A.l_("Hello World! 22",null,null,null,null)
+B.vs=new A.wG(B.aG,null,null,B.I1,null)
 B.vt=new A.ow(null,null,null,null,null,null,null,null,null)
 B.vu=new A.ox(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.vv=new A.cx(0,B.bb)
@@ -55226,9 +55226,9 @@ B.Hf=new A.m(!0,B.x,null,"Roboto",B.y,null,null,null,null,null,null,null,null,nu
 B.GI=new A.m(!0,B.m,null,"Roboto",B.y,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
 B.GS=new A.m(!0,B.m,null,"Roboto",B.y,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
 B.I0=new A.d_(B.Hy,B.Fg,B.G2,B.GH,B.GU,B.EO,B.FH,B.ES,B.Gv,B.H5,B.G8,B.H6,B.Hf,B.GI,B.GS)
-B.I1=new A.l_("New version available!",null,null,null,null)
-B.I2=new A.l_("Reload",null,null,null,null)
-B.I3=new A.l_("Please reload the page to get the latest version.",null,null,null,null)
+B.I2=new A.l_("New version available!",null,null,null,null)
+B.I3=new A.l_("Reload",null,null,null,null)
+B.I4=new A.l_("Please reload the page to get the latest version.",null,null,null,null)
 B.Kh=new A.WC(0,"system")
 B.I5=new A.t6(null)
 B.I6=new A.WE(0,"clamp")
