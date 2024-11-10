@@ -1,19 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:universal_html/html.dart' hide VoidCallback;
 
-void main() {
-  runApp(const MainApp());
+/// Registers [effect] to be run in
+/// WidgetsBinding.instance.addPostFrameCallback.
+void usePostFrameEffect(VoidCallback effect, [List<Object?>? keys]) {
+  useEffect(
+    () {
+      WidgetsBinding.instance.addPostFrameCallback((_) => effect());
+      return null;
+    },
+    keys,
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void main() {
+  mainCommon();
+}
+
+Future<void> mainCommon() async {
+  final prefs = await SharedPreferences.getInstance();
+  final response = await HttpRequest.getString('version.txt');
+  final currentVersion = response.trim();
+  final savedVersion = prefs.getString('version');
+
+  if (currentVersion != savedVersion) {
+    prefs.setString('version', currentVersion);
+  }
+
+  runApp(
+    MaterialApp(
+      home: MainApp(
+        shouldReload: currentVersion != savedVersion,
+      ),
+    ),
+  );
+}
+
+class MainApp extends HookWidget {
+  const MainApp({
+    super.key,
+    required this.shouldReload,
+  });
+
+  final bool shouldReload;
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World! 12'),
+    usePostFrameEffect(() {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('New version available!'),
+          action: SnackBarAction(
+              label: 'Reload',
+              onPressed: () {
+                window.location.reload();
+              }),
         ),
+      );
+    });
+
+    return const Scaffold(
+      body: Center(
+        child: Text('Hello World! 12'),
       ),
     );
   }

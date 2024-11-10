@@ -27,17 +27,13 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web --release
+        run: flutter build web --release  --base-href="/web_cache/"
 
-      - name: Move files and update index.html
-        run: |
-          VERSION="web_12347"
-          mv build/web "build/$VERSION"
-          mv "build/$VERSION/index.html" "build/index.html"
-          sed -i 's|<head>|<head><base href="./'"$VERSION"'/">|' build/index.html
+      - name: Write Git Hash to Version File
+        run: echo $(git rev-parse HEAD) > build/web/version.txt
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build
+          publish_dir: build/web
