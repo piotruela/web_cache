@@ -31,14 +31,13 @@ jobs:
 
       - name: Move files and update index.html
         run: |
-          VERSION="web_12345"
-          mkdir build/deploy
-          mv build/web "build/deploy/$VERSION"
-          mv "build/deploy/$VERSION/index.html" "build/deploy/index.html"
-          sed -i 's|<head>|<head><base href="./'"$VERSION"'/">|' build/deploy/index.html
+          VERSION="web_12346"
+          mv build/web "build/$VERSION"
+          mv "build/$VERSION/index.html" "build/index.html"
+          sed -i 's|<head>|<head><base href="./'"$VERSION"'/">|' build/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/deploy
+          publish_dir: build
