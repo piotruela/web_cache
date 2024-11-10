@@ -47,27 +47,29 @@ class MainApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
     usePostFrameEffect(() {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('New version available!'),
-          action: SnackBarAction(
-              label: 'Reload',
-              onPressed: () async {
-                final prefs = await SharedPreferences.getInstance();
-                final response = await HttpRequest.getString(
-                  'version.txt?${DateTime.now().millisecondsSinceEpoch}',
-                );
-                final currentVersion = response.trim();
-                prefs.setString('version', currentVersion);
-                window.location.reload();
-              }),
-        ),
-      );
+      if (shouldReload) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('New version available!'),
+            action: SnackBarAction(
+                label: 'Reload',
+                onPressed: () async {
+                  final prefs = await SharedPreferences.getInstance();
+                  final response = await HttpRequest.getString(
+                    'version.txt?${DateTime.now().millisecondsSinceEpoch}',
+                  );
+                  final currentVersion = response.trim();
+                  prefs.setString('version', currentVersion);
+                  window.location.reload();
+                }),
+          ),
+        );
+      }
     });
 
     return const Scaffold(
       body: Center(
-        child: Text('Hello World! 14'),
+        child: Text('Hello World! 15'),
       ),
     );
   }

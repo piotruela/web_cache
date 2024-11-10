@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web --release  --base-href="/web_cache/" --pwa-strategy=none
+        run: flutter build web --release  --base-href="/web_cache/"
 
       - name: Write Git Hash to Version File
         run: echo $(git rev-parse HEAD) > build/web/version.txt
