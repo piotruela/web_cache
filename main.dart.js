@@ -17174,16 +17174,16 @@ r=o.d6$
 r.toString
 r.a=A.a9j(o,p)}}}o.d6$=o.d6$.gfM(0)},
 alJ(){A.IY()},
-IY(){var s=0,r=A.S(t.H),q,p,o,n,m,l,k,j,i,h,g
+IY(){var s=0,r=A.S(t.H),q,p,o,n,m,l,k,j,i,h,g,f,e
 var $async$IY=A.T(function(a,b){if(a===1)return A.P(b,r)
 while(true)switch(s){case 0:s=2
 return A.X(A.AW(),$async$IY)
 case 2:h=b
-g=B.d
+e=B.d
 s=3
 return A.X(A.a6o("version.txt?"+Date.now()),$async$IY)
-case 3:g.mw(b)
-A.bU(J.b_(h.a,"version"))
+case 3:g=e.mw(b)
+f=A.bU(J.b_(h.a,"version"))
 if($.aN==null){q=A.a([],t.kf)
 p=$.a7
 o=$.aJ()
@@ -17208,14 +17208,16 @@ i.aF()
 i.IF(null,null,p)
 q.ay$!==$&&A.ak()
 q.ay$=i
-j=i}q.Fc(new A.ta(n,new A.q6(new A.yP(null),null),m,j,null))
+j=i}q.Fc(new A.ta(n,new A.q6(new A.yP(g!==f,null),null),m,j,null))
 q.wf()
 return A.Q(null,r)}})
 return A.R($async$IY,r)},
 a1K:function a1K(a){this.a=a},
 a1J:function a1J(a){this.a=a},
-yP:function yP(a){this.a=a},
-OP:function OP(a){this.a=a},
+yP:function yP(a,b){this.d=a
+this.a=b},
+OP:function OP(a,b){this.a=a
+this.b=b},
 OO:function OO(){},
 a1x(){var s=0,r=A.S(t.H)
 var $async$a1x=A.T(function(a,b){if(a===1)return A.P(b,r)
@@ -51515,12 +51517,13 @@ A.a1J.prototype={
 $1(a){return this.a.$0()},
 $S:6}
 A.yP.prototype={
-S(a){A.am9(new A.OP(a))
+S(a){A.am9(new A.OP(this,a))
 return B.Cm}}
 A.OP.prototype={
-$0(){var s=null,r=this.a.ac(t.Cu)
-r.toString
-r.f.FB(A.a7X(new A.rC("Reload",new A.OO(),s),s,s,s,s,B.ao,s,B.IW,s,B.wI,s,s,s,s,s,s,s,s,s))},
+$0(){var s,r=null
+if(this.a.d){s=this.b.ac(t.Cu)
+s.toString
+s.f.FB(A.a7X(new A.rC("Reload",new A.OO(),r),r,r,r,r,B.ao,r,B.IX,r,B.wI,r,r,r,r,r,r,r,r,r))}},
 $S:0}
 A.OO.prototype={
 $0(){var s=0,r=A.S(t.H),q,p,o
@@ -53418,8 +53421,8 @@ B.vg=new A.a_f()
 B.vh=new A.GW()
 B.vi=new A.HS()
 B.vm=new A.or(null,null,null,null,null,null,null)
-B.IX=new A.mN("Hello World! 14",null,null,null,null)
-B.vn=new A.wB(B.b8,null,null,B.IX,null)
+B.IW=new A.mN("Hello World! 15",null,null,null,null)
+B.vn=new A.wB(B.b8,null,null,B.IW,null)
 B.vo=new A.os(null,null,null,null,null,null,null,null,null)
 B.vp=new A.ot(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.vq=new A.cB(0,B.bb)
@@ -55256,7 +55259,7 @@ B.I1=new A.i(!0,B.y,null,"Roboto",B.z,null,null,null,null,null,null,null,null,nu
 B.Hq=new A.i(!0,B.o,null,"Roboto",B.z,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
 B.HA=new A.i(!0,B.o,null,"Roboto",B.z,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
 B.IV=new A.cz(B.In,B.Fx,B.Gv,B.Hp,B.HC,B.EY,B.G4,B.F1,B.H9,B.HP,B.GF,B.HR,B.I1,B.Hq,B.HA)
-B.IW=new A.mN("New version available!",null,null,null,null)
+B.IX=new A.mN("New version available!",null,null,null,null)
 B.Lk=new A.Wm(0,"system")
 B.tq=new A.rX(0)
 B.IY=new A.rX(0.5)
